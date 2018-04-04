@@ -1,4 +1,4 @@
-package reactive;
+package common;
 
 public class Lyrics {
     private Lyrics() {}
