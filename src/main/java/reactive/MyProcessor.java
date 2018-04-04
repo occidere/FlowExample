@@ -32,7 +32,7 @@ public class MyProcessor<T, R> extends SubmissionPublisher<R> implements Process
         submit(changed);
 
         int req = Runtime.getRuntime().availableProcessors();
-        System.out.printf("[%s, %d, (%s)] %s -> %s\n",
+        System.out.printf("[%s, %d, (%s)] %s => %s\n",
                 new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS").format(new Date()), req, name, item, changed);
         subscription.request(req);
     }

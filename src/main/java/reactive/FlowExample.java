@@ -16,10 +16,12 @@ public class FlowExample {
         MyProcessor<String, String[]> splitProcessor = new MyProcessor<>("SplitProcessor", s-> s.split(" "));
         MyProcessor<String[], Integer> countProcessor = new MyProcessor<>("CountProcessor", arr-> arr.length);
         MySubscriber<Integer> subscriber = new MySubscriber<>("MySubscriber");
+        MySubscriber<Integer> subscriber2 = new MySubscriber<>("MySubscriber2");
 
         publisher.subscribe(splitProcessor);
         splitProcessor.subscribe(countProcessor);
         countProcessor.subscribe(subscriber);
+        countProcessor.subscribe(subscriber2);
 
         Arrays.stream(Lyrics.getLyrics())
                 .forEach(publisher::submit);
